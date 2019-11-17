@@ -1,0 +1,30 @@
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://ip:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+spring:
+  application:
+    name: itoken-eureka
+  boot:
+    admin:
+      client:
+        url: http://ip:8084
+  zipkin:
+      base-url: http://ip:9411
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
